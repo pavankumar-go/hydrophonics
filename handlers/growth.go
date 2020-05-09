@@ -9,7 +9,14 @@ import (
 	"gopkg.in/birkirb/loggers.v1/log"
 )
 
-func AddGrowthInfo() gin.HandlerFunc {
+// RegisterGrowthInfoRoutes defines growth-info routes
+func RegisterGrowthInfoRoutes(api *gin.RouterGroup) {
+	api.POST("/growthinfo/", addGrowthInfo())
+	api.GET("/plants/:plantID/info/", getGrowthInfoForPlant())
+}
+
+// AddGrowthInfo adds info to a plant
+func addGrowthInfo() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var info types.GrowthDTO
 
@@ -28,7 +35,8 @@ func AddGrowthInfo() gin.HandlerFunc {
 	}
 }
 
-func GetGrowthInfoForPlant() gin.HandlerFunc {
+// GetGrowthInfoForPlant lists the growth info of a plant
+func getGrowthInfoForPlant() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		plantID := c.Param("plantID")
 		pID, err := strconv.Atoi(plantID)
