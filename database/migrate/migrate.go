@@ -24,6 +24,7 @@ func Migrate(db *gorm.DB) {
 		log.Panicln("error migrating plants :", err)
 	}
 
+	// Adding Contraints
 	err = db.Model(&models.Plant{}).AddForeignKey("category_id", "categories(id)", "CASCADE", "CASCADE").Error
 	if err != nil {
 		log.Panicln("error adding contraint to plants :", err)
