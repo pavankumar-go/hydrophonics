@@ -30,14 +30,14 @@ func AddCategory(name string) (*models.Category, error) {
 	return &category, nil
 }
 
-func GetCategories() *[]models.Category {
+func GetCategories() (*[]models.Category, error) {
 	db := database.GetDB()
 	var category []models.Category
 
 	err := db.Find(&category).Error
 	if err != nil {
-		return nil
+		return nil, err
 	}
 
-	return &category
+	return &category, nil
 }
