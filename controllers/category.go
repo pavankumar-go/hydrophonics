@@ -5,6 +5,7 @@ import (
 	"github.com/hydrophonics/models"
 )
 
+// AddCategory adds 3 categories of plant
 func AddCategory(name string) (*models.Category, error) {
 	data := &models.Category{
 		Name: name,
@@ -30,6 +31,7 @@ func AddCategory(name string) (*models.Category, error) {
 	return &category, nil
 }
 
+// GetCategories lists all categories
 func GetCategories() (*[]models.Category, error) {
 	db := database.GetDB()
 	var category []models.Category
