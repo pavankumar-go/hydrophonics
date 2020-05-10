@@ -19,7 +19,7 @@ func Migrate(db *gorm.DB) {
 		log.Panicln("error migrating category :", err)
 	}
 
-	err = db.AutoMigrate(&models.GrowthMonitor{}).Error
+	err = db.AutoMigrate(&models.GrowthInfo{}).Error
 	if err != nil {
 		log.Panicln("error migrating plants :", err)
 	}
@@ -30,7 +30,7 @@ func Migrate(db *gorm.DB) {
 		log.Panicln("error adding contraint to plants :", err)
 	}
 
-	err = db.Model(&models.GrowthMonitor{}).AddForeignKey("plant_id", "plants(id)", "CASCADE", "CASCADE").Error
+	err = db.Model(&models.GrowthInfo{}).AddForeignKey("plant_id", "plants(id)", "CASCADE", "CASCADE").Error
 	if err != nil {
 		log.Panicln("error adding contraint to growth_monitor :", err)
 	}
