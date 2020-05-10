@@ -3,8 +3,10 @@ package database
 import (
 	"fmt"
 
+	"github.com/hydrophonics/config"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
+	"gopkg.in/birkirb/loggers.v1/log"
 )
 
 // DB can be accessible anywhere in project
@@ -12,17 +14,11 @@ var DB *gorm.DB
 
 // Init establishes connection to database
 func Init() *gorm.DB {
-	// host := "localhost"
-	// username := "postgres"
-	// password := ""
-	// dbName := "hydrophonicss"
-	// port := 5432
 
-	// databaseURL := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, username, password, dbName)
-
-	db, err := gorm.Open("postgres", "host=localhost port=5432 user=postgres dbname=hydrophonics sslmode=disable")
+	dbConnectionStr := GetDBAddress()
+	db, err := gorm.Open("postgres", dbConnectionStr)
 	if err != nil {
-		fmt.Println("Could not connect to database")
+		log.Panic("Could not connect to database: ", err)
 		return nil
 	}
 
@@ -32,6 +28,15 @@ func Init() *gorm.DB {
 	DB = db
 
 	return DB
+}
+
+// GetDBAddress returns address string of database
+func GetDBAddress() string {
+	cfg := config.GetConfig()
+	dbConnectionStr := fmt.Sprintf("host=%s port=%d user=%s dbname=%s password=%s sslmode=%s",
+		cfg.Database.Host, cfg.Database.Port, cfg.Database.User, cfg.Database.DBName, cfg.Database.Password, cfg.Database.SSLMode)
+
+	return dbConnectionStr
 }
 
 // GetDB re-initialises DB if nil
