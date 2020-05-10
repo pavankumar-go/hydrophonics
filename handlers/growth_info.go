@@ -14,7 +14,7 @@ import (
 func RegisterGrowthInfoRoutes(api *gin.RouterGroup) {
 	api.POST("/growthinfo/", addGrowthInfo())
 	api.GET("/plant/:plantID/info/", getGrowthInfoForPlant())
-	api.DELETE("growthinfo/:growthinfoID/plant/:plantID/", deleteGrowthInfoOfPlant())
+	api.DELETE("/growthinfo/:growthinfoID/plant/:plantID/", deleteGrowthInfoOfPlant())
 }
 
 // AddGrowthInfo adds info to a plant
@@ -25,7 +25,7 @@ func addGrowthInfo() gin.HandlerFunc {
 		err := c.ShouldBindJSON(&info)
 		if err != nil {
 			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
-				"message":"invalid request data")
+				"message": "invalid request data"})
 			return
 		}
 
@@ -48,10 +48,10 @@ func getGrowthInfoForPlant() gin.HandlerFunc {
 		pID, err := strconv.Atoi(plantID)
 		if err != nil {
 			log.Println("error strconv :", err)
-			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message":"invalid request")
+			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "invalid request"})
 			return
 		}
-		
+
 		response, err := controllers.GetGrowthInfoForPlant(uint(pID))
 		if err != nil {
 			c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
@@ -73,14 +73,14 @@ func deleteGrowthInfoOfPlant() gin.HandlerFunc {
 		pID, err := strconv.Atoi(plantID)
 		if err != nil {
 			log.Println("error strconv :", err)
-			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message":"invalid request")
+			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "invalid request"})
 			return
 		}
 
 		gID, err := strconv.Atoi(growthInfoID)
 		if err != nil {
 			log.Println("error strconv :", err)
-			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message":"invalid request")
+			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "invalid request"})
 			return
 		}
 
