@@ -1,7 +1,7 @@
 package models
 
-// GrowthMonitor provides growth info for each type of plant
-type GrowthMonitor struct {
+// GrowthInfo provides growth info for each type of plant
+type GrowthInfo struct {
 	BaseModel
 	PlantID   uint   `gorm:"foreignkey:PlantID"`
 	AirTemp   string `gorm:"varchar(10)"`
