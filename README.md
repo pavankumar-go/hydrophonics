@@ -23,7 +23,7 @@ Hydrophonics
 1. https://gorm.io
 
 ### Roadmap
-[-] Implement JWT for authentication 
-[-] Implement RBAC for authorization
-[-] Dockerize to run it in a container
-[-] add more attributes to existing tables
+- [ ] Implement JWT for authentication 
+- [ ] Implement RBAC for authorization
+- [ ] Dockerize to run it in a container
+- [ ] add more attributes to existing tables
