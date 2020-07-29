@@ -14,7 +14,6 @@ var DB *gorm.DB
 
 // Init establishes connection to database
 func Init() *gorm.DB {
-
 	dbConnectionStr := GetDBAddress()
 	db, err := gorm.Open("postgres", dbConnectionStr)
 	if err != nil {
