@@ -1,4 +1,5 @@
 Hydrophonics
+![workflow file path](https://github.com/pavankumar-go/hydrophonics/workflows/.github/workflows/go.yml/badge.svg)
 ===========
 ## A Web based Microservice developed with Golang and  uses Gin-Gonic http framework for routing, GORM for interacting with Postgres DB
 
