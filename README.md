@@ -1,8 +1,9 @@
 Hydrophonics
-![workflow file path](https://github.com/pavankumar-go/hydrophonics/workflows/.github/workflows/go.yml/badge.svg)
 ===========
 ## A Web based Microservice developed with Golang and  uses Gin-Gonic http framework for routing, GORM for interacting with Postgres DB
-
+===========
+![Build](https://github.com/pavankumar-go/hydrophonics/workflows/Go/badge.svg?branch=master)
+===========
 ### Requirements for Running it on Mac OS
 * Go lang - `version go1.13.6 darwin/amd64` (https://golang.org/dl/)
 * Postgres for Mac - `brew install postgresql`
