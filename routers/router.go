@@ -9,6 +9,8 @@ import (
 func StartServer() {
 
 	app := gin.New()
+	app.Use(gin.Logger())
+
 	api := app.Group("/api/v1")
 
 	handlers.RegisterPlantRoutes(api)
@@ -16,5 +18,5 @@ func StartServer() {
 	handlers.RegisterCategoryRoutes(api)
 
 	api.Use(gin.Logger())
-	app.Run()
+	app.Run() // Address & Port unset. default runs on localhost:8080
 }

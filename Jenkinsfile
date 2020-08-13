@@ -26,5 +26,11 @@ pipeline {
           sh 'go test -v'
       }
     }
+
+    stage('Review'){
+      steps {
+        sh 'echo TODO'
+      }
+    }
   }
 }

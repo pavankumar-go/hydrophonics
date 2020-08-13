@@ -1,0 +1,11 @@
+language: go
+
+go: 
+  - 1.9 # Earliest supported due to introduction of testing#T.helper
+  - 1.11
+
+sudo: false
+
+go_import_path: gopkg.in/birkirb/loggers.v1
+
+install: true

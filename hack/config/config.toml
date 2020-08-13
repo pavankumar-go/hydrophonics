@@ -1,7 +1,7 @@
 [database]
-host = "localhost"
+host = "db"
 port = 5432
-user = "admin"
-password = "mypassword"
+user = "postgres"
+password = "postgres"
 dbname = "hydrophonics"
 sslmode = "disable"
