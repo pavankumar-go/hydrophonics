@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  api:
+    build: .
+    container_name: api
+    volumes:
+      - ./hack/config/config.toml:/app/.config/config.toml
+    command:
+    - ./hydrophonics
+    ports:
+      - 8080:8080
+    networks:
+    - hydrophonics
+    links:
+      - postgres:db
+    depends_on:
+    - postgres
+
+  postgres: 
+    image: postgres:11
+    container_name: db
+    environment:
+      POSTGRES_DB: hydrophonics
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - hydrophonics_db_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+    - hydrophonics
+volumes:
+  hydrophonics_db_data:
+    driver: local
+networks:
+  hydrophonics:
+    external: true
