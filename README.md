@@ -7,6 +7,7 @@ Hydrophonics
 ### Requirements for Running it on Mac OS
 * Go lang - `version go1.13.6 darwin/amd64` (https://golang.org/dl/)
 * Postgres for Mac - `brew install postgresql`
+* Docker for Mac or Docker Desktop (https://docs.docker.com/docker-for-mac/install)
 * Go Package Dependencies 
 	* `go get -u github.com/gin-gonic/gin`
 	* `go get -u github.com/gogo/protobuf`
@@ -19,7 +20,7 @@ Hydrophonics
 1. Clone the repo 
 2. Create a database in Postgres named `hydrophonics`
 3. configure your host, port, password in - [config.toml](hack/config/config.toml)
-3. cd to `/your/directory/main.go` and `go run main.go` in your terminal
+3. Using docker-compose run `docker-compose up --build`
 
 ### Useful links for references
 1. https://gorm.io
