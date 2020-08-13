@@ -28,5 +28,5 @@ Hydrophonics
 ### Roadmap
 - [ ] Implement JWT for authentication 
 - [ ] Implement RBAC for authorization
-- [ ] Dockerize to run it in a container
+- [x] Dockerize to run it in a container
 - [ ] add more attributes to existing tables
