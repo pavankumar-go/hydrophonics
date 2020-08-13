@@ -12,7 +12,7 @@ func main() {
 
 	err := config.LoadConfig() // loads config
 	if err != nil {
-		panic("error reading toml")
+		panic("error reading toml: " + err.Error())
 	}
 
 	db := database.Init()
