@@ -1,4 +1,4 @@
-Hydrophonics
+Hydrophonics (A dockerized RESTful Go microservice)
 ===========
 ## A Web based Microservice developed with Golang and  uses Gin-Gonic http framework for routing, GORM for interacting with Postgres DB
 
